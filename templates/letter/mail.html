@@ -1,0 +1,43 @@
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'letter/style-mail.css' %}" media="all">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Главная</title>
+	<link type="image/x-icon" href="style-mail.css">
+</head>
+<body>
+
+<div class="title">
+    <a href="D:\IT_PY\satoru gojo\file\home.html" class="link-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2560px-Microsoft_logo_%282012%29.svg.png" alt="" class="icon"></a>
+    <a href="D:\IT_PY\satoru gojo\file\mail.html" class="mail">Mail</a>
+	<a href="" class="about">About</a>
+	<a href="D:\IT_PY\satoru gojo\file\register.html" class="register">Register</a>
+    <a href="D:\IT_PY\satoru gojo\file\login.html" class="login">Login</a>
+</div>
+
+
+
+<form class="window-1" method="post">
+	{% csrf_token %}
+
+	<div class="title-window-1">Содержимое открытки</div>
+
+	{{ form.title }}
+	{{ form.description }}
+	{{ form.mail }}
+
+	<button class="window-1_button">Применить</button>
+</form>
+
+
+
+<div class="window-2">
+	<div class="title-window-2">Вид открытки</div>
+
+    <div class="form"><img WIDTH="100%" src="{{ model.image.url	 }}"></div>
+</div>
+
+</body>
+</html>

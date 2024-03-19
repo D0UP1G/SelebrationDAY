@@ -1,0 +1,28 @@
+{% load static %}
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'registration/style-login.css' %}" media="all">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Главная</title>
+	<link type="image/x-icon" href="style-login.css">
+</head>
+<body class="bg">
+
+<div class="title">
+    <div class="link-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2560px-Microsoft_logo_%282012%29.svg.png" class="icon"></div>
+</div>
+
+<form class="login-form" method="post">
+    {% csrf_token %}
+    <div class="title-text">Login to Microsoft</div>
+    <input type="text" placeholder="Введите свою эл. почту: " class="input-1" name="username">
+    <input type="password" placeholder="Введите пароль: " class="input-2" name="password">
+    {{ form.errors }}
+    <button class="button">Войти</button>
+    
+    <div class="add-text">Если вы ещё не вошли, то вы можете <a href="{% url 'user:registration' %}">Зарегестрироваться</a></div>
+</form>
+
+</body>
+</html>

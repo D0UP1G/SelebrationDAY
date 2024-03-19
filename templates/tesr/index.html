@@ -1,0 +1,13 @@
+
+{{ request.user.username }}
+<h1>_________________</h1>
+
+<form method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    {{ form.name }}
+    {{ form.description }}
+    {{ form.path }}
+    {{ form.image }}
+    {{ form.errors }}
+    <button>press start</button>
+</form>
