@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'misc',
     'user',
-    'letter'
+    'letter',
+    "django_cron",
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,8 @@ STATICFILES_DIRS = [
 from django.urls import reverse_lazy
 
 LOGIN_REDIRECT_URL = reverse_lazy('user:profile')
+
+CRON_CLASSES = [
+    "letter.cron.Job",
+    # ...
+]
