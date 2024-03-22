@@ -23,15 +23,15 @@
 
 
 
-<form class="window-1" method="post">
+<form class="window-1" method="post"  enctype="multipart/form-data" >
 	{% csrf_token %}
 
 	<div class="title-window-1">Содержимое открытки</div>
 
-	{{ form.title }}
+	{{ form.name }}
 	{{ form.description }}
-	{{ form.mail }}
-	{{ form.date }}
+	{{ form.path }}
+	{{ form.image }}
 
 	<button class="window-1_button">Применить</button>
 </form>

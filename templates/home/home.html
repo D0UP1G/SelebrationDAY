@@ -1,35 +1,18 @@
+{% extends 'main.html' %}
 {% load static %}
-<html>
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" type="text/css" href="{% static 'style-home.css' %}" media="all">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Главная</title>
-	<link type="image/x-icon" href="https://i.pinimg.com/564x/db/81/73/db817390e1ef0ef739e4e6e370f06caf.jpg	">
-</head>
-<body>
 
-<div class="title">
-    <a href="D:\IT_PY\satoru gojo\file\home.html" class="link-icon"><img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2560px-Microsoft_logo_%282012%29.svg.png" alt="" class="icon"></a>
-    <a href="D:\IT_PY\satoru gojo\file\mail.html" class="mail">Mail</a>
-	<a href="" class="about">About</a>
-	{% if request.user.is_authenticated %}
-		<a href="{% url 'user:profile' %}" class = 'login'>Profile</a>
-	{% else %}
-		<a href="{% url 'user:registration' %}" class="register">Register</a>
-    <a href="{% url 'login' %}" class="login">Login</a>
-	{% endif %}
-</div>
+{% block staticf %}
+<link rel="stylesheet" type="text/css" href="{% static 'style-home.css' %}" media="all">
+{% endblock  %}
 
-
-
+{% block content %}
 
 
 <div class="head">
 	<div class="head-title">
 		<div class="head-title-text">Письма, открытки, пожелания. Поделитесь эмоциями и идеями c человеком через нас.</div>
 		<div class="head-add-text">Через наш сайт вы можете отправить письмо любому человеку по электронной почте.</div>
-		<a href="D:\IT_PY\satoru gojo\file\mail.html" class="title-start">Начать</a>
+		<a href="{% url 'letter:list' %}" class="title-start">Начать</a>
 	</div>
 	<img src="https://cdn-icons-png.flaticon.com/512/2344/2344590.png" alt="" class="head-img">
 </div>
@@ -46,7 +29,7 @@
 		<img src="https://png.pngtree.com/png-vector/20220519/ourmid/pngtree-envelope-writing-icon-color-flat-png-image_4702779.png" alt="">
 		<div class="form_1-title-text">Зайдите на страницу для отправки письма.</div>
 		<div class="form_1-add-text">Найдите вкладку "Mail" на шапке страницы или просто нажмите на кнопку ниже.</div>
-		<a href="D:\IT_PY\satoru gojo\file\mail.html" class="main-start">Начать</a>
+		<a href="{% url 'letter:list' %}" class="main-start">Начать</a>
 	</div>
 
 	<div class="form_2">
@@ -68,6 +51,5 @@
 
 <div class="daeh">
 
-</div>
-</body>
-</html>
+
+{% endblock %}

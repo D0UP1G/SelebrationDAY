@@ -1,0 +1,34 @@
+{% load static %}
+
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="{% static 'letter/style-vid-mail.css' %}" media="all">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Выбрать вид открытки</title>
+	<link type="image/x-icon" href="style-vid-mail.css">
+</head>
+<body class="bg">
+
+    <div class="title">
+        <a href="{% url 'misc:main' %}" class="link-icon"><img src="https://i.ibb.co/jr3mtKR/Untitled.jpg" alt="" class="icon"></a>
+        <a href="{% url 'letter:list' %}" class="mail">Mail</a>
+        {% if request.user.is_authenticated %}
+            <a href="{% url 'user:profile' %}" class = 'login'>Profile</a>
+        {% else %}
+            <a href="{% url 'user:registration' %}" class="register">Register</a>
+        <a href="{% url 'login' %}" class="login">Login</a>
+        {% endif %}
+        
+    </div>
+
+<div class="main-text">Выберите вид открытки</div>
+
+<form action="" class="form">
+    {% for post in post_l %}
+        <a href="{{ post.pk }}" class="form-vid"><img height="100%" src="{{ post.image.url }}" alt=""></a>
+    {% endfor %}
+</form>
+
+</body>
+</html>
