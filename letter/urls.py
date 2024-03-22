@@ -6,5 +6,7 @@ app_name = 'letter'
 
 urlpatterns = [
 	path('create/', LetterCreateView.as_view()),
-	path('<int:pk>', LetterSend.as_view())
+	path('<int:pk>', LetterSend.as_view()),
+    path('', LetterView.as_view(), name='list'),
+    path('sended', SendMail, name='sended')
 ]
